@@ -55,6 +55,7 @@ public class ProductoController extends CommonController<Producto, ProductoServi
 		productoDb.setNombre(producto.getNombre());
 		productoDb.setPrecio(producto.getPrecio());
 		productoDb.setCantidad(producto.getCantidad());
+		productoDb.setEspecificacion(producto.getEspecificacion());
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(productoDb));
 		
 	}

@@ -3,12 +3,16 @@ package co.edu.ucentral.productos.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -42,7 +46,17 @@ public class Producto implements Serializable {
 	private int cantidad;
 	@NotNull(message = "No puede  estar vacio")
 	@Positive(message = "no puede ser negativo " )
-	private Float precio; 
+	private Float precio;
+	/*relaciones
+	 * */
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "especificacion_id")
+	private EspecificacionTecnica especificacion;
+	
+	
+	
+	/*fin de la relacion 
+	 * */
 	@Temporal(TemporalType.DATE)
 	@Column(name="create_at")
 	private Date createAt;
@@ -101,5 +115,15 @@ public class Producto implements Serializable {
 	public Integer getIamgenHasCode() {
 		return (this.imagen != null ) ? imagen.hashCode():null;
 	}
+
+	public EspecificacionTecnica getEspecificacion() {
+		return especificacion;
+	}
+
+	public void setEspecificacion(EspecificacionTecnica especificacion) {
+		this.especificacion = especificacion;
+	}
+	
+	
 	
 }

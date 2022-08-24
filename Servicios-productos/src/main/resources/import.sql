@@ -1,10 +1,18 @@
+INSERT INTO especificaciones_tecnicas (descripcion, componentes) VALUES ( 'DESCRIPCION 1', 'COMPONENTE 1');
+INSERT INTO especificaciones_tecnicas (descripcion, componentes) VALUES ( 'DESCRIPCION 2', 'COMPONENTE 2');
+INSERT INTO especificaciones_tecnicas (descripcion, componentes) VALUES ( 'DESCRIPCION 3', 'COMPONENTE 3');
+INSERT INTO especificaciones_tecnicas (descripcion, componentes) VALUES ( 'DESCRIPCION 4', 'COMPONENTE 4');
+INSERT INTO especificaciones_tecnicas (descripcion, componentes) VALUES ( 'DESCRIPCION 5', 'COMPONENTE 5');
+INSERT INTO especificaciones_tecnicas (descripcion, componentes) VALUES ( 'DESCRIPCION 6', 'COMPONENTE 6');
+
+
 INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 1',10,10000,NOW());
 INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 2',20,20000,NOW());
 INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 3',30,30000,NOW());
 INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 4',40,40000,NOW());
 INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 5',40,40000,NOW());
 INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 6',40,40000,NOW());
-INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 7',40,40000,NOW());
+/*INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 7',40,40000,NOW());
 INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 8',40,40000,NOW());
 INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 9',40,40000,NOW());
 INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 10',40,40000,NOW());
@@ -27,3 +35,4 @@ INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 26',40
 INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 27',40,40000,NOW());
 INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 28',40,40000,NOW());
 INSERT INTO productos (nombre,cantidad,precio,create_at) VALUES('PRODUCTO 29',40,40000,NOW());
+*/

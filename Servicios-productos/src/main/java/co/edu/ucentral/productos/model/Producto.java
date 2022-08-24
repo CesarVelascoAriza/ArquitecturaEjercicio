@@ -50,7 +50,7 @@ public class Producto implements Serializable {
 	/*relaciones
 	 * */
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "especificacion_id")
+	@JoinColumn(name = "especificacion_id",nullable = false)
 	private EspecificacionTecnica especificacion;
 	
 	

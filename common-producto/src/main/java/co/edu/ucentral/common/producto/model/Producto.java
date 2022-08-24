@@ -1,4 +1,4 @@
-package co.edu.ucentral.productos.model;
+package co.edu.ucentral.common.producto.model;
 
 import java.io.Serializable;
 import java.util.Date;

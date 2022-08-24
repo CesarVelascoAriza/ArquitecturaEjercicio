@@ -4,13 +4,20 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import co.edu.ucentral.common.producto.model.Producto;
 
 @Entity
 @Table(name = "ventas")
@@ -28,6 +35,17 @@ public class Venta implements Serializable {
 	private Float valor;
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
+	@ManyToOne
+	@JoinColumn(name = "producto_id")
+	private Producto producto;
+	
+	@JsonIgnoreProperties(value = {"ventas"})
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "cliente_id")
+	private Cliente cliente;
+	
+	
+	
 	
 	@PrePersist
 	public void prePersist() {
@@ -64,6 +82,22 @@ public class Venta implements Serializable {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 	
 	

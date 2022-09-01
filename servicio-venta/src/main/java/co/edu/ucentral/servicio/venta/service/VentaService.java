@@ -2,7 +2,7 @@ package co.edu.ucentral.servicio.venta.service;
 
 import java.util.List;
 
-import co.edu.ucentral.servicio.venta.model.Venta;
+import co.edu.ucentral.commons.venta.modelo.Venta;
 
 public interface VentaService {
 	

@@ -8,10 +8,10 @@
 		<version>2.7.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>co.edu.ucentral.servicio-venta</groupId>
-	<artifactId>servicio-venta</artifactId>
+	<groupId>co.edu.ucentral.servicio.cliente</groupId>
+	<artifactId>servicio-clientes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>servicio-venta</name>
+	<name>servicio-clientes</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -36,11 +36,6 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>co.edu.ucentral.commons.venta</groupId>
-			<artifactId>commons-venta</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

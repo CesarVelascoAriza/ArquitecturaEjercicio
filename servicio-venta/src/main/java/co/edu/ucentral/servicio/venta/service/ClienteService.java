@@ -2,7 +2,7 @@ package co.edu.ucentral.servicio.venta.service;
 
 import java.util.Optional;
 
-import co.edu.ucentral.servicio.venta.model.Cliente;
+import co.edu.ucentral.commons.venta.modelo.Cliente;
 
 public interface ClienteService {
 

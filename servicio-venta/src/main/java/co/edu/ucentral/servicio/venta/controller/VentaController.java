@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.ucentral.servicio.venta.model.Cliente;
-import co.edu.ucentral.servicio.venta.model.Venta;
+import co.edu.ucentral.commons.venta.modelo.Cliente;
+import co.edu.ucentral.commons.venta.modelo.Venta;
 import co.edu.ucentral.servicio.venta.service.ClienteService;
 import co.edu.ucentral.servicio.venta.service.VentaService;
 

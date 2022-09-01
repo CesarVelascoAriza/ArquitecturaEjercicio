@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.edu.ucentral.servicio.venta.model.Cliente;
+import co.edu.ucentral.commons.venta.modelo.Cliente;
 import co.edu.ucentral.servicio.venta.repository.ClienteRepository;
 
 @Service

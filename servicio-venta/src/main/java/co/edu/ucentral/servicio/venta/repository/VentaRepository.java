@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import co.edu.ucentral.servicio.venta.model.Venta;
+import co.edu.ucentral.commons.venta.modelo.Venta;
 
 public interface VentaRepository extends JpaRepository<Venta, Long> {
 

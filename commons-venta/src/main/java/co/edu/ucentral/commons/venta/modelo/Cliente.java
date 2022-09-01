@@ -1,4 +1,4 @@
-package co.edu.ucentral.servicio.venta.model;
+	package co.edu.ucentral.commons.venta.modelo;
 
 import java.io.Serializable;
 import java.util.ArrayList;

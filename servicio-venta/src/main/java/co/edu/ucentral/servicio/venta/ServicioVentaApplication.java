@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @SpringBootApplication
 @EntityScan({
 	"co.edu.ucentral.common.producto.model",
-	"co.edu.ucentral.servicio.venta.model"
+	"co.edu.ucentral.commons.venta.modelo"
 })
 public class ServicioVentaApplication {
 

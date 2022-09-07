@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -26,7 +28,11 @@ public class Cliente implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotEmpty(message = "No puede ser vacio")
+	@Size(min = 2 , max = 60, message = "tiene que estar entre 2 y 60 caracteres" )
 	private String nombre;
+	@NotEmpty(message = "No puede ser vacio")
+	@Size(min = 4 , max = 60, message = "tiene que estar entre 4 y 60 caracteres" )
 	private String direccion;
 	@JsonIgnoreProperties(value = {"cliente"}, allowSetters = true)
 	@OneToMany(mappedBy = "cliente" , fetch = FetchType.EAGER, cascade = CascadeType.ALL,orphanRemoval = true)

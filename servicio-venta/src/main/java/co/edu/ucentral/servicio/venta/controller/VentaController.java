@@ -1,80 +1,49 @@
 package co.edu.ucentral.servicio.venta.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.ucentral.commons.venta.modelo.Cliente;
+import co.edu.ucentral.commons.services.controller.CommonController;
 import co.edu.ucentral.commons.venta.modelo.Venta;
-import co.edu.ucentral.servicio.venta.service.ClienteService;
 import co.edu.ucentral.servicio.venta.service.VentaService;
 
 @RestController
-public class VentaController {
+public class VentaController extends CommonController<Venta, VentaService> {
 
-	@Autowired
-	private VentaService service;
-	@Autowired
-	private ClienteService clienteServ;
-	
-	
-	@GetMapping
-	public ResponseEntity<?> listar(){
-		return ResponseEntity.ok().body(service.findAll());
-	}
-	
-	@PostMapping
-	public ResponseEntity<?> crear(@RequestBody Venta venta){
-		Venta ventaDb = service.save(venta);
-		return ResponseEntity.status(HttpStatus.CREATED).body(ventaDb);
-	}
-	
-	
 	@GetMapping("/producto/{id}")
 	public ResponseEntity<?> buscarPorProducto(@PathVariable Long id){
 		List<Venta> lista = service.findVentasByProductoId(id);
 		return ResponseEntity.ok(lista);
 	}
 	
-	@GetMapping("/cliente/{id}")
-	public ResponseEntity<?> buscarPorClienteId(@PathVariable Long id){
-		Optional<Cliente> lista = clienteServ.findById(id);
-		return ResponseEntity.ok(lista);
+	@PutMapping("/{id}")
+	public ResponseEntity<?> actualizar(@PathVariable Long id, @Valid @RequestBody Venta venta){
+		Optional<Venta> optional = service.findById(id);
+		if(!optional.isPresent()) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		Venta ventaDb = optional.get();
+		
+		ventaDb.setCantidad(venta.getCantidad());
+		ventaDb.setValor(venta.getValor());
+		ventaDb.setProducto(venta.getProducto());
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(ventaDb));
 	}
 	
-	@PutMapping("/cliente/{id}")
-	public ResponseEntity<?> modificar(@PathVariable Long id,@RequestBody Cliente cliente ){
-		Optional<Cliente> optional = clienteServ.findById(id);
-		if(!optional.isPresent()) {
-			return  ResponseEntity.notFound().build();
-		}
-		Cliente clienteDb= optional.get();
-		clienteDb.setNombre(cliente.getNombre());
-		clienteDb.setDireccion(cliente.getDireccion());
-		List<Venta> eliminados= new ArrayList<Venta>();
-		
-		clienteDb.getVentas().forEach(vent -> {
-			if(!cliente.getVentas().contains(vent)) {
-				eliminados.add(vent);
-			}
-		});
-		
-		eliminados.forEach(v->{
-			clienteDb.removeVenta(v);
-		});
-		
-		clienteDb.setVentas(cliente.getVentas());
-		return ResponseEntity.status(HttpStatus.CREATED).body(clienteServ.save(clienteDb));
-	} 
-	
+	@GetMapping("/cliente/{id}")
+	public ResponseEntity<?> buscarPorCliente(@PathVariable Long id){
+		List<Venta> lista = service.findVentasByClienteId(id);
+		return ResponseEntity.ok(lista);
+	}
 }

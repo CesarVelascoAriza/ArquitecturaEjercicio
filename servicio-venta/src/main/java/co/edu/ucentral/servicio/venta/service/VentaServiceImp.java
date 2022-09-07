@@ -2,23 +2,14 @@ package co.edu.ucentral.servicio.venta.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import co.edu.ucentral.commons.services.service.CommonServiceImp;
 import co.edu.ucentral.commons.venta.modelo.Venta;
 import co.edu.ucentral.servicio.venta.repository.VentaRepository;
 
 @Service
-public class VentaServiceImp implements VentaService{
-
-	@Autowired
-	private VentaRepository repository;
-	
-	@Override
-	public Iterable<Venta> findAll() {
-		// TODO Auto-generated method stub
-		return repository.findAll();
-	}
+public class VentaServiceImp extends CommonServiceImp<Venta, VentaRepository> implements VentaService{
 
 	@Override
 	public List<Venta> findVentasByProductoId(Long id) {
@@ -27,10 +18,12 @@ public class VentaServiceImp implements VentaService{
 	}
 
 	@Override
-	public Venta save(Venta venta) {
+	public List<Venta> findVentasByClienteId(Long id) {
 		// TODO Auto-generated method stub
-		return repository.save(venta);
+		return repository.findVentasByClienteId(id);
 	}
+
+	
 	
 
 }

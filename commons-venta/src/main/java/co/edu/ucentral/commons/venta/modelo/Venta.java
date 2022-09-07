@@ -14,6 +14,8 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -31,7 +33,11 @@ public class Venta implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Positive(message = "no puede ser negativo")
+	@NotNull(message = "no puede ser vacia ")
 	private int cantidad;
+	@Positive(message = "no puede ser negativo")
+	@NotNull(message = "no puede ser vacia ")
 	private Float valor;
 	@Temporal(TemporalType.DATE)
 	private Date fecha;

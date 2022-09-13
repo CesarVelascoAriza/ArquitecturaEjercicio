@@ -10,5 +10,7 @@
   	<module>common-producto</module>
   	<module>commons-services</module>
   	<module>servicio-venta</module>
+  	<module>commons-venta</module>
+  	<module>servicio-clientes</module>
   </modules>
 </project>

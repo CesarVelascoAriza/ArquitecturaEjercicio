@@ -8,10 +8,10 @@
 		<version>2.7.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>co.edu.ucentral.commons.venta</groupId>
-	<artifactId>commons-venta</artifactId>
+	<groupId>co.edu.ucentral.servicio.common.cliente</groupId>
+	<artifactId>common-cliente-guia</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>commons-venta</name>
+	<name>common-cliente-guia</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -21,20 +21,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-json</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>co.edu.ucentral.common.producto</groupId>
-			<artifactId>common-producto</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -42,6 +29,13 @@
 		</dependency>
 	</dependencies>
 
-	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

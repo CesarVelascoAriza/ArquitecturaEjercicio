@@ -81,7 +81,24 @@ public class ProductoController extends CommonController<Producto, ProductoServi
 		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(img);
 	}
 	
+	@GetMapping("/precio-cantidad")
+	public ResponseEntity<?> buscarPorPrecioYCantidad(@RequestParam float precio, @RequestParam int cantidad){
+		return ResponseEntity.ok().body(service.buscarPorPrecioYCantidad(precio, cantidad));
+	}
 	
+	 @GetMapping("precio-entre")
+	 public ResponseEntity<?> buscarPrecioEntr(@RequestParam float precio1, @RequestParam float precio2){
+		 return ResponseEntity.ok().body(service.buscarPorPrecioEntre(precio1, precio2));
+	 }
+	 
+	 @GetMapping("nombres")
+	 public ResponseEntity<?> buscarPrecioEntr(@RequestParam String[] nombres){
+		 return ResponseEntity.ok().body(service.buscarPorIn(nombres));
+	 }
 	
+	 @GetMapping("/buscar-por-nombre")
+	 public ResponseEntity<?> buscarPorNombre(@RequestParam String nombres){
+		 return ResponseEntity.ok().body(service.buscarPorNombre(nombres));
+	 }
 	
 }

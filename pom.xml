@@ -12,5 +12,11 @@
   	<module>servicio-venta</module>
   	<module>commons-venta</module>
   	<module>servicio-clientes</module>
+  	<module>common-cliente-guia</module>
+  	<module>servicio-usuarios</module>
+  	
+  	
+  	<module>servicio-cliente-guia</module>
+  	<module>servicio-venta-guia</module>
   </modules>
 </project>

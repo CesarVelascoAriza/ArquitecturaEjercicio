@@ -18,5 +18,12 @@
   	
   	<module>servicio-cliente-guia</module>
   	<module>servicio-venta-guia</module>
+  	<module>common-cuenta</module>
+  	<module>commons-usuario</module>
+  	<module>servicio-cuenta</module>
+  	<module>servicio-oauth</module>
+  	<module>servicio-transaccion</module>
+  	<module>servidor-eureka</module>
+  	<module>servidor-gateway</module>
   </modules>
 </project>

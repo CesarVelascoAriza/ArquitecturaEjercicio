@@ -1,4 +1,4 @@
-package co.edu.ucentral.servicio.usuario.modelo;
+package co.edu.ucentral.commons.usuario.model;
 
 import java.io.Serializable;
 

@@ -7,13 +7,15 @@ import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.ucentral.commons.services.controller.CommonController;
-import co.edu.ucentral.servicio.usuario.modelo.Usuario;
+import co.edu.ucentral.commons.usuario.model.Usuario;
 import co.edu.ucentral.servicio.usuario.service.UsuarioService;
 @RestController
 public class UsuarioController extends CommonController<Usuario, UsuarioService> {
@@ -41,5 +43,10 @@ public class UsuarioController extends CommonController<Usuario, UsuarioService>
 		
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(usuarioDb));
+	}
+	
+	@GetMapping("/buscar-username")
+	public ResponseEntity<?> buscarPorUserName(@RequestParam("username") String username){
+		return ResponseEntity.ok().body(service.buscarPorUsername(username));
 	}
 }

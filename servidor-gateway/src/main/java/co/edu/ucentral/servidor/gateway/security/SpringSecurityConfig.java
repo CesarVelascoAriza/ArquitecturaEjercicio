@@ -17,7 +17,7 @@ public class SpringSecurityConfig {
 	@Bean
 	public SecurityWebFilterChain configure(ServerHttpSecurity http) {
 		return http.authorizeExchange()
-				.pathMatchers("/api/security/oauth/**").permitAll()
+				.pathMatchers("/api/security/oauth/**","/api/productos/**").permitAll()
 				.pathMatchers(HttpMethod.GET,"/api/productos","/api/productos/{id}","/api/usuarios").permitAll()
 				.pathMatchers(HttpMethod.GET,"/api/usuarios/{id}").hasAnyRole("ADMIN","USER")
 				.pathMatchers("/api/productos/**","/api/usuarios/**").hasRole("ADMIN")
